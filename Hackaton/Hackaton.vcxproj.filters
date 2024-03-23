@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{a8b7419e-867f-41c4-be5e-7299b400a9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\actors">
+      <UniqueIdentifier>{9227305e-aa8a-4692-806e-a8bb35faa278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{0b3e3e35-e769-4198-9e83-b25e2b76d539}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\actors">
+      <UniqueIdentifier>{d416608d-9f36-4aeb-8b6c-ef24e0438508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\system">
+      <UniqueIdentifier>{29d8ebce-531c-4a20-ae93-db20c2a73c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\systems">
+      <UniqueIdentifier>{0882b8cc-c9a0-4083-a8ee-ce5721e10070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\components">
+      <UniqueIdentifier>{a91b66ed-04be-496c-b83c-f7832183d9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\util">
+      <UniqueIdentifier>{e234f0ba-1757-456b-a5f0-344fa618a26a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\util">
+      <UniqueIdentifier>{75bc2b81-5409-400a-9b0a-6920b1ab5626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{c9f2e05f-71e6-4ff4-bb08-4a8059b1288f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\models">
+      <UniqueIdentifier>{7aca999c-53ec-44f9-aadb-e85ec1827c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\states">
+      <UniqueIdentifier>{402f08aa-712d-4d7c-b297-0a0df9576bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\states">
+      <UniqueIdentifier>{84125eb9-6eef-4d90-982c-bdcbc0701ce5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Hackaton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actor.cpp">
+      <Filter>Source Files\engine\actors</Filter>
+    </ClCompile>
+    <ClCompile Include="system_manager.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="button_menu_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="texture_registry.cpp">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="model_registry.cpp">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite_renderer_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="start_menu_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="context_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="learning_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="model_renderer_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="planets_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="solar_system_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="binary_system_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="transition_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="spin_actor_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_controls_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="spawn_planets_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="grid_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="learning_physics_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="black_hole_physics_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="click_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="text_input_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="actor.h">
+      <Filter>Header Files\engine\actors</Filter>
+    </ClInclude>
+    <ClInclude Include="system_manager.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="position_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="button_menu_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_button.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="texture_registry.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="model_registry.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_renderer_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="app_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="learning_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="start_menu_states.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_util.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="model_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="model_renderer_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="planets_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="context_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="solar_system_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_system_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="rotate_around_axis_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="spin_actor_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_controls_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="spawn_planets_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="grid_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="learning_physics_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="black_hole_physics_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="data_transfer_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="click_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="text_input_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="text_input_component.h">
+      <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="default.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="buton_pressed.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="buton.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="play_button.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="SIMA.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="cosmos.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textura.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_mercur.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_pamant.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_jupiter.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_neptun.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_saturn.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_uranus.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_venus.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_marte.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="texture_sun.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
