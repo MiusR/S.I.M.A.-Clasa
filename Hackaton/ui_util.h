@@ -8,8 +8,9 @@
 #include "data_transfer_component.h"
 #include "text_input_component.h"
 #include "physics_component.h"
+#include "label_component.h"
 
-inline void CreateButton(float x, float y, float width, float height, std::string text, std::string texture, std::function<void(Actor*, std::vector<Actor*>)> lambda)
+inline Actor* CreateButton(float x, float y, float width, float height, std::string text, std::string texture, std::function<void(Actor*, std::vector<Actor*>)> lambda)
 {
     PositionComponent* component = new PositionComponent(Vector3{ x,y,0 }, Vector3{ width, height, 0 });
 
@@ -24,9 +25,11 @@ inline void CreateButton(float x, float y, float width, float height, std::strin
     actor->AddComponent(sprite);
 
     SystemManager::getInstance()->AddActor(actor);
+
+    return actor;
 }
 
-inline void CreateButton(float x, float y, float width, float height, int font_size, std::string text, std::string texture, std::function<void(Actor*, std::vector<Actor*>)> lambda)
+inline Actor* CreateButton(float x, float y, float width, float height, int font_size, std::string text, std::string texture, std::function<void(Actor*, std::vector<Actor*>)> lambda)
 {
     PositionComponent* component = new PositionComponent(Vector3{ x,y,0 }, Vector3{ width, height, 0 });
 
@@ -41,9 +44,31 @@ inline void CreateButton(float x, float y, float width, float height, int font_s
     actor->AddComponent(sprite);
 
     SystemManager::getInstance()->AddActor(actor);
+
+    return actor;
 }
 
-inline void CreateTextInput(float x, float y, float width, float heigth, std::string org, std::function<void(std::string)> fct) {
+inline Actor* CreateLabel(float x, float y, float width, float height, int font_size, std::string text, Color color) {
+    PositionComponent* component = new PositionComponent(Vector3{ x,y,0 }, Vector3{ width, height, 0 });
+    
+    //ImageDrawText(&texture, text.c_str(), 0, 0, font_size, WHITE); // Draw text (custom sprite font) within an image (destination)
+    
+    SpriteComponent* sprite = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture("button"), 1);
+    
+    LabelComponent* label = new LabelComponent(text, font_size, color);
+
+    Actor* actor = new Actor();
+
+    actor->AddComponent(component);
+    actor->AddComponent(sprite);
+    actor->AddComponent(label);
+
+    SystemManager::getInstance()->AddActor(actor);
+
+    return actor;
+}
+
+inline Actor* CreateTextInput(float x, float y, float width, float heigth, std::string org, std::function<void(std::string)> fct) {
     Actor* actor = new Actor();
 
     TextuInputComponent* txt_input = new TextuInputComponent(fct, org);
@@ -69,4 +94,6 @@ inline void CreateTextInput(float x, float y, float width, float heigth, std::st
     actor->AddComponent(sprt);
 
     SystemManager::getInstance()->AddActor(actor);
+
+    return actor;
 }

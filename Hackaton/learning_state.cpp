@@ -2,6 +2,7 @@
 #include "solar_system_state.h"
 #include "binary_system_state.h"
 #include "planets_state.h"
+#include "test_state.h"
 
 void LearningState::InitState(){
 
@@ -43,6 +44,11 @@ void LearningState::InitState(){
 	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+150, GetScreenHeight() / 2-100, buttonWidth, buttonHeight, 20,"Sistem Binar", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new BinarySystemState());
 		ContextState::getInstance()->InitState();
+		});
+	
+	CreateButton(GetScreenWidth() / 11 + buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 20, "Test State", "button", [](Actor* actor, std::vector<Actor*> actors) {
+			ContextState::getInstance()->SetState(new TestState());
+			ContextState::getInstance()->InitState();
 		});
 
 	CreateButton(GetScreenWidth() / 11 - buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 30, "Back", "button", [](Actor* actor, std::vector<Actor*> actors) {

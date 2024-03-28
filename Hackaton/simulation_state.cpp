@@ -10,10 +10,11 @@ void SimulationState::InitState() {
 	actor = new Actor();
 
 	SpriteComponent* model = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture("cosmos"), 0);
-	PositionComponent* pos = new PositionComponent({ 0,0,0 }, Vector3{ (float)GetScreenWidth(),(float)GetScreenHeight(), 0 });
+	BackgroundComponent* bg = new BackgroundComponent();
+
 
 	actor->AddComponent(model);
-	actor->AddComponent(pos);
+	actor->AddComponent(bg);
 
 	SystemManager::getInstance()->AddActor(actor);
 
@@ -69,6 +70,15 @@ void SimulationState::InitState() {
 
 
 	// ADD SYSTEMS
+
+	BackgroundDrawSystem* backgroundDraw = new BackgroundDrawSystem();
+	
+	SystemManager::getInstance()->AddSystem(backgroundDraw);
+
+	GridSystem* grid = new GridSystem();
+
+	SystemManager::getInstance()->AddSystem(grid);
+
 	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
 	SystemManager::getInstance()->AddSystem(renderer);
@@ -80,10 +90,6 @@ void SimulationState::InitState() {
 	ModelRendererSystem* renderer_3d = new ModelRendererSystem(&(camera->camera));
 
 	SystemManager::getInstance()->AddSystem(renderer_3d);
-
-	GridSystem* grid = new GridSystem();
-
-	SystemManager::getInstance()->AddSystem(grid);
 
 	PhysicsSystem* physics_system = new PhysicsSystem();
 
@@ -99,7 +105,7 @@ void SimulationState::InitState() {
 
 	SystemManager::getInstance()->AddSystem(txt_inp);
 
-	ClickSystem* click = new ClickSystem(player);
+	ClickSimulationSystem* click = new ClickSimulationSystem(player);
 
 	SystemManager::getInstance()->AddSystem(click);
 
