@@ -1,6 +1,7 @@
 #include "start_menu_states.h"
 
 void StartMenuState::InitState() {
+
 	Actor* actor;
 	actor = new Actor();
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "system.h"
-#include <raylib.h>
+#include "util.h"
 #include "camera_component.h"
 #include "data_transfer_component.h"
 #include "model_component.h"
@@ -9,19 +9,19 @@
 #include "camera_component.h"
 #include "position_component.h"
 #include "texture_registry.h"
+#include "ui_util.h"
 
-class ClickSystem : public System {
+class FocusSystem : public System {
 public:
 
-    Actor* user;
+    bool isShowingInfo = false;
 
-    ClickSystem(Actor* user) {
-        this->user = user;
-        requirements.push_back(typeid(ModelComponent).name());
-        requirements.push_back(typeid(PhysicsComponent).name());
-        requirements.push_back(typeid(PositionComponent).name());
+    Actor* info_actor;
+
+    FocusSystem() {
+        requirements.push_back(typeid(DataTransferComponent).name());
+        requirements.push_back(typeid(CameraComponent).name());
     }
 
     void doLogic(std::vector<Actor*> actors, int current) override;
-
 };

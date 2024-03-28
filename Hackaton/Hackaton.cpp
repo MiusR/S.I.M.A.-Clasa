@@ -29,6 +29,8 @@ int main()
     ContextState::getInstance()->SetState(new StartMenuState());
     ContextState::getInstance()->InitState();
 
+   
+
     while (!WindowShouldClose())
     {
   

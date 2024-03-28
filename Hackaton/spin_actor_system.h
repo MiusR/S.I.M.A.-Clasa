@@ -3,6 +3,7 @@
 #include "system.h"
 #include "position_component.h"
 #include "rotate_around_axis_component.h"
+#include <raymath.h>
 
 class SpinActorSystem :public System
 {
