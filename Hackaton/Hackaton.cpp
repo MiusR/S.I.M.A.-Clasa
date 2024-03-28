@@ -29,13 +29,13 @@ int main()
     ContextState::getInstance()->SetState(new StartMenuState());
     ContextState::getInstance()->InitState();
 
-   
-
-    while (!WindowShouldClose())
+    while (!WindowShouldClose() && !ContextState::getInstance()->exitWindow)
     {
-  
+        
         BeginDrawing();
         ClearBackground(darkGreen);
+
+        
 
         SystemManager::getInstance()->Update();
 
