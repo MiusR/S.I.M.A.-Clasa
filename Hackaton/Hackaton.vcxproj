@@ -133,6 +133,7 @@
     <ClCompile Include="camera_controls_system.cpp" />
     <ClCompile Include="click_system.cpp" />
     <ClCompile Include="context_state.cpp" />
+    <ClCompile Include="cristi_state.cpp" />
     <ClCompile Include="grid_system.cpp" />
     <ClCompile Include="Hackaton.cpp" />
     <ClCompile Include="learning_physics_system.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="camera_controls_system.h" />
     <ClInclude Include="click_system.h" />
     <ClInclude Include="component.h" />
+    <ClInclude Include="cristi_state.h" />
     <ClInclude Include="data_transfer_component.h" />
     <ClInclude Include="grid_system.h" />
     <ClInclude Include="learning_physics_system.h" />
@@ -194,6 +196,7 @@
     <ClInclude Include="util.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Downloads\texture_minecraft.png" />
     <Image Include="buton_pressed.png" />
     <Image Include="buton.png" />
     <Image Include="cosmos.png" />

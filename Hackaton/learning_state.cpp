@@ -2,6 +2,7 @@
 #include "solar_system_state.h"
 #include "binary_system_state.h"
 #include "planets_state.h"
+#include "cristi_state.h"
 
 void LearningState::InitState(){
 
@@ -45,10 +46,17 @@ void LearningState::InitState(){
 		ContextState::getInstance()->InitState();
 		});
 
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+150, GetScreenHeight() / 2+100, buttonWidth, buttonHeight, 20, "Elipsa Planetelor", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new CristiState());
+		ContextState::getInstance()->InitState();
+		});
+
 	CreateButton(GetScreenWidth() / 11 - buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 30, "Back", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->RegressState();
 		ContextState::getInstance()->InitState();
 		});
+
+	
 	
 	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
