@@ -18,8 +18,10 @@
 #include "grid_system.h"
 #include "text_input_system.h"
 #include "text_input_component.h"
-#include "click_system.h"
+#include "click_simulation_system.h"
 #include "data_transfer_component.h"
+#include "background_draw_system.h"
+#include "background_component.h"
 
 class SimulationState : public AppState{
 public:

@@ -15,6 +15,9 @@
 #include "rotate_around_axis_component.h"
 #include "util.h"
 #include "texture_registry.h"
+#include "label_draw_system.h"
+#include "click_learn_system.h"
+#include "focus_system.h"
 
 class LearningState : public AppState{
 public:

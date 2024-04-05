@@ -45,7 +45,7 @@ class Actor{
 
         if (this->components.find(component_Id) == this->components.end()) {
             std::cout << "Error: Component does not exist on this entity\n";
-            return nullptr;
+            return NULL;
         }
 
         return (T*) this->components[component_Id];

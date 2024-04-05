@@ -1,6 +1,7 @@
 #include "start_menu_states.h"
 
 void StartMenuState::InitState() {
+
 	Actor* actor;
 	actor = new Actor();
 
@@ -25,7 +26,12 @@ void StartMenuState::InitState() {
 	CreateButton(GetScreenWidth() / 2 - buttonWidth / 2, GetScreenHeight() / 1.5, buttonWidth, buttonHeight, 40, "Learn","button", [](Actor* actor, std::vector<Actor*>) {
 		ContextState::getInstance()->SetState(new LearningState());
 		ContextState::getInstance()->InitState();
-		});
+	});
+
+	//Quit Button
+	CreateButton(GetScreenWidth() / 11 - buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 40, "Quit", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->exitWindow = true;
+	});
 
 	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
