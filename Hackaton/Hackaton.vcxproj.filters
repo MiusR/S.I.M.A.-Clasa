@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -150,6 +150,9 @@
     <ClCompile Include="focus_system.cpp">
       <Filter>Source Files\engine\systems</Filter>
     </ClCompile>
+    <ClCompile Include="cristi_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actor.h">
@@ -257,6 +260,9 @@
     <ClInclude Include="text_input_component.h">
       <Filter>Header Files\engine\components</Filter>
     </ClInclude>
+    <ClInclude Include="cristi_state.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
     <ClInclude Include="test_state.h">
       <Filter>Header Files\engine\states</Filter>
     </ClInclude>
@@ -323,6 +329,9 @@
       <Filter>Resource Files\textures</Filter>
     </Image>
     <Image Include="texture_sun.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Downloads\texture_minecraft.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
   </ItemGroup>
