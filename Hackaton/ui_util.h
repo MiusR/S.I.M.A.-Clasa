@@ -53,7 +53,7 @@ inline Actor* CreateLabel(float x, float y, float width, float height, int font_
     
     //ImageDrawText(&texture, text.c_str(), 0, 0, font_size, WHITE); // Draw text (custom sprite font) within an image (destination)
     
-    SpriteComponent* sprite = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture("button"), 1);
+    SpriteComponent* sprite = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture("info"), 1);
     
     LabelComponent* label = new LabelComponent(text, font_size, color);
 

@@ -102,7 +102,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -156,7 +156,6 @@
     <ClCompile Include="start_menu_state.cpp" />
     <ClCompile Include="system.cpp" />
     <ClCompile Include="system_manager.cpp" />
-    <ClCompile Include="test_state.cpp" />
     <ClCompile Include="texture_registry.cpp" />
     <ClCompile Include="text_input_system.cpp" />
     <ClCompile Include="transition_state.cpp" />
@@ -178,6 +177,7 @@
     <ClInclude Include="label_component.h" />
     <ClInclude Include="label_draw_system.h" />
     <ClInclude Include="learning_physics_system.h" />
+    <ClInclude Include="misu_state.h" />
     <ClInclude Include="model_component.h" />
     <ClInclude Include="model_renderer_system.h" />
     <ClInclude Include="planets_state.h" />
@@ -198,7 +198,6 @@
     <ClInclude Include="start_menu_states.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="system_manager.h" />
-    <ClInclude Include="test_state.h" />
     <ClInclude Include="texture_registry.h" />
     <ClInclude Include="text_input_component.h" />
     <ClInclude Include="text_input_system.h" />

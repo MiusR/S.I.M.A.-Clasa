@@ -132,9 +132,6 @@
     <ClCompile Include="text_input_system.cpp">
       <Filter>Source Files\engine\systems</Filter>
     </ClCompile>
-    <ClCompile Include="test_state.cpp">
-      <Filter>Source Files\engine\states</Filter>
-    </ClCompile>
     <ClCompile Include="background_component.h">
       <Filter>Header Files\engine\components</Filter>
     </ClCompile>
@@ -263,9 +260,6 @@
     <ClInclude Include="cristi_state.h">
       <Filter>Header Files\engine\states</Filter>
     </ClInclude>
-    <ClInclude Include="test_state.h">
-      <Filter>Header Files\engine\states</Filter>
-    </ClInclude>
     <ClInclude Include="label_component.h">
       <Filter>Header Files\engine\components</Filter>
     </ClInclude>
@@ -280,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="focus_system.h">
       <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="misu_state.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,25 +10,19 @@ void FocusSystem::doLogic(std::vector<Actor*> actors, int current) {
 	if (transfer->actor != NULL) {
 		PositionComponent* target_pos = transfer->actor->GetComponent<PositionComponent>();
 		LabelComponent* info = transfer->actor->GetComponent<LabelComponent>();
-		PhysicsComponent* physics = transfer->actor->GetComponent<PhysicsComponent>();
+		ModelComponent* model = transfer->actor->GetComponent<ModelComponent>();
 		
-		if (target_pos != NULL && info != NULL && physics != NULL) {
+		if (target_pos != NULL && info != NULL && model != NULL) {
 			Vector3 camera_pos = camera->camera.position;
-			Vector3 target = target_pos->transform.translation;
+			Vector3 target = Vector3Add(target_pos->transform.translation, target_pos->observation_pos);
 
-			Vector3 offset = { -25, 0, 0 };
 
-			/// Better to have preset points!!!! 
-			offset.y += physics->radius * 4;
-			offset.x += physics->radius/4;
-
-			target = Vector3Add(target, offset);
-			
 			Vector3 new_pos = camera_pos, new_target = camera->camera.target;
 
+
 			if (!Vector3Equals(camera_pos, target) && Vector3Distance(camera_pos, target) > 0.05) {
-				new_pos = Vector3Lerp(camera_pos, target, 0.1);
-				new_target = Vector3Lerp(camera->camera.target, target, 0.1);
+				new_pos = Vector3Lerp(camera_pos, target, 0.05);
+				new_target = Vector3Lerp(camera->camera.target, target, 0.05);
 				
 				camera->camera.position = new_pos;
 				camera->camera.target = new_target;

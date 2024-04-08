@@ -17,7 +17,6 @@ public:
     ClickLearnSystem(Actor* user) {
         this->user = user;
         requirements.push_back(typeid(ModelComponent).name());
-        requirements.push_back(typeid(PhysicsComponent).name());
         requirements.push_back(typeid(PositionComponent).name());
     }
 

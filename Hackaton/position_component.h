@@ -7,6 +7,7 @@ class PositionComponent : public Component{
         
     public:
         Transform transform;
+        Vector3 observation_pos;
 
         PositionComponent(Vector3 position, Quaternion rotation, Vector3 scale) {
             this->transform.translation = position;

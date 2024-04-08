@@ -11,12 +11,10 @@ void ClickLearnSystem::doLogic(std::vector<Actor*> actors, int current) {
 
     if (IsMouseButtonDown(0)) {
         PositionComponent* position = actors[current]->GetComponent<PositionComponent>();
-    
-        PhysicsComponent* physiscs = actors[current]->GetComponent<PhysicsComponent>();
 
         Ray ray = GetMouseRay(GetMousePosition(), user->GetComponent<CameraComponent>()->camera);
 
-        RayCollision hit = GetRayCollisionSphere(ray, position->transform.translation, physiscs->radius);
+        RayCollision hit = GetRayCollisionSphere(ray, position->transform.translation, position->transform.scale.x * 2.5);
 
         if (hit.hit) {
             user->GetComponent<DataTransferComponent>()->actor = actors[current];
