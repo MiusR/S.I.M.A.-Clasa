@@ -135,6 +135,9 @@
     <ClCompile Include="text_input_system.cpp">
       <Filter>Source Files\engine\systems</Filter>
     </ClCompile>
+    <ClCompile Include="barac.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actor.h">
@@ -244,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="text_input_component.h">
       <Filter>Header Files\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="barac.h">
+      <Filter>Header Files\engine\states</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
