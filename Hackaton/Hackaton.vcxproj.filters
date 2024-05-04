@@ -150,6 +150,9 @@
     <ClCompile Include="cristi_state.cpp">
       <Filter>Source Files\engine\states</Filter>
     </ClCompile>
+    <ClCompile Include="collision_system.cpp">
+      <Filter>Source Files\engine\systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actor.h">
@@ -275,8 +278,8 @@
     <ClInclude Include="focus_system.h">
       <Filter>Header Files\engine\system</Filter>
     </ClInclude>
-    <ClInclude Include="misu_state.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="collision_system.h">
+      <Filter>Header Files\engine\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -331,9 +334,15 @@
     <Image Include="..\..\..\..\..\..\Downloads\texture_minecraft.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="pixelplay.png">
+      <Filter>Resource Files\data</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test_data.txt">
+      <Filter>Resource Files\data</Filter>
+    </Text>
+    <Text Include="mercur.txt">
       <Filter>Resource Files\data</Filter>
     </Text>
   </ItemGroup>

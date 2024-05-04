@@ -11,7 +11,7 @@ public:
 
 	Color text_color;
 
-		
+	float scroll = 0;
 	
 	LabelComponent(std::string label_text, int font_size, Color color) {
 		this->label_text = label_text;

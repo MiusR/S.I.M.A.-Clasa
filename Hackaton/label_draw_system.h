@@ -9,10 +9,14 @@
 class LabelDrawSystem : public System
 {
 public:
+
+	Font base_font;
+
 	LabelDrawSystem() {
 		requirements.push_back(typeid(PositionComponent).name());
 		requirements.push_back(typeid(LabelComponent).name());
 		requirements.push_back(typeid(SpriteComponent).name());
+		base_font = LoadFont("pixelplay.png");
 	}
 
 	void doLogic(std::vector<Actor*> actors, int current) override;

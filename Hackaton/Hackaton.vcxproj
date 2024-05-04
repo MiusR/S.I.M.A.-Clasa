@@ -134,6 +134,7 @@
     <ClCompile Include="camera_controls_system.cpp" />
     <ClCompile Include="click_learn_system.cpp" />
     <ClCompile Include="click_simulation_system.cpp" />
+    <ClCompile Include="collision_system.cpp" />
     <ClCompile Include="context_state.cpp" />
     <ClCompile Include="cristi_state.cpp" />
     <ClCompile Include="focus_system.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="camera_controls_system.h" />
     <ClInclude Include="click_learn_system.h" />
     <ClInclude Include="click_simulation_system.h" />
+    <ClInclude Include="collision_system.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="cristi_state.h" />
     <ClInclude Include="data_transfer_component.h" />
@@ -177,7 +179,6 @@
     <ClInclude Include="label_component.h" />
     <ClInclude Include="label_draw_system.h" />
     <ClInclude Include="learning_physics_system.h" />
-    <ClInclude Include="misu_state.h" />
     <ClInclude Include="model_component.h" />
     <ClInclude Include="model_renderer_system.h" />
     <ClInclude Include="planets_state.h" />
@@ -209,6 +210,7 @@
     <Image Include="buton_pressed.png" />
     <Image Include="buton.png" />
     <Image Include="cosmos.png" />
+    <Image Include="pixelplay.png" />
     <Image Include="play_button.png" />
     <Image Include="default.png" />
     <Image Include="SIMA.png" />
@@ -224,6 +226,7 @@
     <Image Include="texture_venus.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="mercur.txt" />
     <Text Include="test_data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

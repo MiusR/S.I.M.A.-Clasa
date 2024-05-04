@@ -22,6 +22,7 @@
 #include "data_transfer_component.h"
 #include "background_draw_system.h"
 #include "background_component.h"
+#include "collision_system.h"
 
 class SimulationState : public AppState{
 public:

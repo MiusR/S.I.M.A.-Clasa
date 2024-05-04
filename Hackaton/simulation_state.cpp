@@ -91,6 +91,12 @@ void SimulationState::InitState() {
 
 	SystemManager::getInstance()->AddSystem(renderer_3d);
 
+	CollisionSystem* collision_system = new CollisionSystem();
+
+	collision_system->active = false;
+	
+	SystemManager::getInstance()->AddSystem(collision_system);
+
 	PhysicsSystem* physics_system = new PhysicsSystem();
 
 	physics_system->active = false;
@@ -116,9 +122,10 @@ void SimulationState::InitState() {
 			spawn_planets->isSpawning = true;
 		});
 
-	CreateButton(GetScreenWidth() / 1.12 - buttonWidth / 2 + 12, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, "", "button_play", [physics_system](Actor* actor, std::vector<Actor*> actors)
+	CreateButton(GetScreenWidth() / 1.12 - buttonWidth / 2 + 12, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, "", "button_play", [physics_system, collision_system](Actor* actor, std::vector<Actor*> actors)
 		{
 			physics_system->active = !physics_system->active;
+			collision_system->active = !collision_system->active;
 		});
 
 

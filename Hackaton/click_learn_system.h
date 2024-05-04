@@ -13,7 +13,7 @@ class ClickLearnSystem : public System {
 public:
 
     Actor* user;
-
+    
     ClickLearnSystem(Actor* user) {
         this->user = user;
         requirements.push_back(typeid(ModelComponent).name());

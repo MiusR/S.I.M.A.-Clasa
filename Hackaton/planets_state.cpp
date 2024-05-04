@@ -87,7 +87,7 @@ void PlanetState::InitState() {
 
 	position2->observation_pos = { -8, 10, -3 };
 
-	LabelComponent* label1 = new LabelComponent("Buna dimineata la mos ajun ne dati sau nu ne dati slanina si carnati carnati carnati CARNATI", 40, WHITE);
+	LabelComponent* label1 = new LabelComponent(LoadFileText("mercur.txt"), 30, WHITE);
 
 
 	actor1->AddComponent(model2);

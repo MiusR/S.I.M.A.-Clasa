@@ -8,6 +8,6 @@ class DataTransferComponent : public Component {
 
 public:
     Actor* actor;
-
+    int additional_data;
     DataTransferComponent() {}
 };

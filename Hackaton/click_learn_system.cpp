@@ -9,14 +9,15 @@ void ClickLearnSystem::doLogic(std::vector<Actor*> actors, int current) {
         return;
     }
 
-    if (IsMouseButtonDown(0)) {
-        PositionComponent* position = actors[current]->GetComponent<PositionComponent>();
+    PositionComponent* position = actors[current]->GetComponent<PositionComponent>();
 
-        Ray ray = GetMouseRay(GetMousePosition(), user->GetComponent<CameraComponent>()->camera);
+    Ray ray = GetMouseRay(GetMousePosition(), user->GetComponent<CameraComponent>()->camera);
 
-        RayCollision hit = GetRayCollisionSphere(ray, position->transform.translation, position->transform.scale.x * 2.5);
+    RayCollision hit = GetRayCollisionSphere(ray, position->transform.translation, position->transform.scale.x * 2.5);
 
-        if (hit.hit) {
+    if (hit.hit){
+
+        if (IsMouseButtonDown(0)) {
             user->GetComponent<DataTransferComponent>()->actor = actors[current];
         }
     }
