@@ -37,6 +37,7 @@ void LabelDrawSystem::doLogic(std::vector<Actor*> actors, int current) {
 			if (i+1 < strlen(cuv) && cuv[i] == '\\' && cuv[i + 1] == 'n') {
 				drop += font_size * 3;
 				length = 0;
+
 				i += 2;
 				//strcpy(cuv + i, cuv + i + 2); // FRAGMENTATION ERROR
 			}

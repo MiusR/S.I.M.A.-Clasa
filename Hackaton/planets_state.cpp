@@ -104,13 +104,13 @@ void PlanetState::InitState() {
 	Actor* actor2;
 	actor2 = new Actor();
 
-	ModelComponent* model3 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(1, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_venus"));
+	ModelComponent* model3 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_venus"));
 
-	PositionComponent* position3 = new PositionComponent(Vector3{ 110, 0, -20 }, { 0, 0, -1, 0 }, { 0.94,0.94,0.94 });
+	PositionComponent* position3 = new PositionComponent(Vector3{ 120, 0, -20 }, { 0, 0, -1, 0 }, { 2.22,2.22,2.22});
 
-	position3->observation_pos = { -14, 25, -3 };
+	position3->observation_pos = { -12, 10, -3 };
 
-	RotateAroundAxisComponent* spin3 = new RotateAroundAxisComponent(0.004);
+	RotateAroundAxisComponent* spin3 = new RotateAroundAxisComponent(0.04);
 
 	LabelComponent* label2 = new LabelComponent("Buna dimineata la mos ajun ne dati sau nu ne dati slanina si carnati carnati carnati CARNATI", 40, WHITE);
 
