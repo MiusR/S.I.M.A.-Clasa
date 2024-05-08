@@ -46,7 +46,6 @@ void CollisionSystem::Update() {
         }
 
         if (collided) {
-            actor_physics_a->skip_attraction = true;
             actor_physics_a->velocity = rez;
         }
 

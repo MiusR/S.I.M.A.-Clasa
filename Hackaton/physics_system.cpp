@@ -2,7 +2,7 @@
 
 void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
 
-    const long double G = 6.67 * 0.0000001;
+    const long double G = 6.67 * 0.0001; /// 10 ^ 3
 
     PositionComponent* actor_position_a = actors[current]->GetComponent<PositionComponent>();
 
@@ -16,7 +16,7 @@ void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
     Vector3 rez = actor_pshysics_a->velocity;
 
     for (int i = 0; i < actors.size(); i++) {
-        if (i == current)
+        if (i == current || actors[i]->markDeletion)
             continue;
 
         PositionComponent* actor_position_b = actors[i]->GetComponent<PositionComponent>();
@@ -35,6 +35,14 @@ void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
 
         rez = addVectors(rez, vector);
     }
+
+    Vector3 vel = actor_pshysics_a->velocity;
+    // Inertia?
+    rez.x = Lerp(vel.x, rez.x, 1 / actor_pshysics_a->mass);
+    rez.y = Lerp(vel.y, rez.y, 1 / actor_pshysics_a->mass);
+    rez.z = Lerp(vel.z, rez.z, 1 / actor_pshysics_a->mass);
+
+
     actor_pshysics_a->velocity = rez;
 
 

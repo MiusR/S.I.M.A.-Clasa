@@ -153,6 +153,12 @@
     <ClCompile Include="collision_system.cpp">
       <Filter>Source Files\engine\systems</Filter>
     </ClCompile>
+    <ClCompile Include="four_star_balley_state.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
+    <ClCompile Include="asteroizi_states.cpp">
+      <Filter>Source Files\engine\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="actor.h">
@@ -280,6 +286,15 @@
     </ClInclude>
     <ClInclude Include="collision_system.h">
       <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="four_star_balley.h">
+      <Filter>Header Files\engine\states</Filter>
+    </ClInclude>
+    <ClInclude Include="correction_system.h">
+      <Filter>Header Files\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="asteroizi_state.h">
+      <Filter>Header Files\engine\states</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

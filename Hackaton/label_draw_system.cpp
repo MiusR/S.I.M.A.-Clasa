@@ -8,7 +8,7 @@ void LabelDrawSystem::doLogic(std::vector<Actor*> actors, int current) {
 	LabelComponent* label_comp = actors[current]->GetComponent<LabelComponent>();
 	SpriteComponent* sprite = actors[current]->GetComponent<SpriteComponent>();
 
-	label_comp->scroll += GetMouseWheelMove() * 20;
+	label_comp->scroll += -GetMouseWheelMove() * 20;
 
 	char* s_copy = new char[strlen(label_comp->label_text.c_str())+10], *cuv;
 	strcpy(s_copy, label_comp->label_text.c_str());
