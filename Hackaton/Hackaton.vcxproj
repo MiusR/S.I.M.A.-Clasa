@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="actor.cpp" />
     <ClCompile Include="barac_state.cpp" />
-    <ClCompile Include="black_hole_physics_system.cpp" />
     <ClCompile Include="asteroizi_states.cpp" />
     <ClCompile Include="background_component.h" />
     <ClCompile Include="background_draw_system.cpp" />
@@ -169,7 +168,6 @@
     <ClInclude Include="actor.h" />
     <ClInclude Include="app_state.h" />
     <ClInclude Include="barac_state.h" />
-    <ClInclude Include="black_hole_physics_system.h" />
     <ClInclude Include="asteroizi_state.h" />
     <ClInclude Include="background_draw_system.h" />
     <ClInclude Include="button_menu_system.h" />
@@ -236,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="mercur.txt" />
-    <Text Include="test_data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

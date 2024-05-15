@@ -32,7 +32,7 @@ void TextInputSystem::doLogic(std::vector<Actor*> actors, int current) {
             input->mark_writing = false;
             return;
         }
-        else if (a != 0 && a >= KEY_ZERO && a <= KEY_NINE)
+        else if (a != 0 && ((a >= KEY_ZERO && a <= KEY_NINE) || a == KEY_MINUS))
             menuButton->text += a;
     }
 }
