@@ -1,7 +1,7 @@
-#include "barac.h"
+#include "barac_state.h"
 
 
-void Barac::InitState() {
+void BaracState::InitState() {
 	float buttonWidth = 128, buttonHeight = 64;
 	float buttonWidthSq = 64, buttonHeightSq = 64;
 
@@ -78,10 +78,12 @@ void Barac::InitState() {
 		});
 
 
-	addCelestialBody({ -7, 0, 0 }, { 0,0,-1.5 }, 100000, 1.5, "texture_sun");
-	addCelestialBody({ 7,0, 0 }, { 0,0,1.5 }, 100000, 1.5, "texture_sun");
-	addCelestialBody({ 40,0,0 }, { 0,0,10 }, 1500, 0.5, "texture_saturn");
-	addCelestialBody({ -41,0,0 }, { 0,0,9 }, 4000, 0.9, "texture_mercur");
-	///addCelestialBody({ 20,0,0 }, { 0,0,12 }, 3000, 1, "texture_pamant");
-};
+
+	addCelestialBody({ 0,0, 0 }, { 0,0,0 }, 1000, 1.5, "texture_sun");
+	addCelestialBody({ 25,-10,-25 }, { -7,0,0 }, 10, 0.7, "comet");
+	addCelestialBody({ 0,0,17 }, { 10,0,0 }, 30, 0.8, "texture_mercur");
+	///addCelestialBody({ 0,0,-30 }, { -7,0,0 }, 45, 1, "texture_pamant");
+
+}
+
 
