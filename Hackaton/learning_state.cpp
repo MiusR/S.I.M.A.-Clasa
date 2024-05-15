@@ -1,7 +1,8 @@
-﻿#include "learning_state.h"
+#include "learning_state.h"
 #include "solar_system_state.h"
 #include "binary_system_state.h"
 #include "planets_state.h"
+#include "barac_state.h"
 #include "cristi_state.h"
 #include "four_star_balley.h"
 #include "asteroizi_state.h"
@@ -68,8 +69,11 @@ void LearningState::InitState(){
 		ContextState::getInstance()->InitState();
 		});
 
-	
-	
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20, "PLaneta + \n \n cometa", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new BaracState());
+		ContextState::getInstance()->InitState();
+		});
+
 	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
 	SystemManager::getInstance()->AddSystem(renderer);
