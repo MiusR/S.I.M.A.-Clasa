@@ -18,7 +18,7 @@ void TextInputSystem::doLogic(std::vector<Actor*> actors, int current) {
 
         int a = GetKeyPressed();
 
-        if (a == KEY_C) {
+        if (a == KEY_C || a== KEY_ENTER) {
             input->mark_writing = false;
             menuButton->text = input->org;
             return;
@@ -29,8 +29,10 @@ void TextInputSystem::doLogic(std::vector<Actor*> actors, int current) {
 
         if (a == KEY_BACKSPACE) {
             menuButton->text = input->org;
+            input->mark_writing = false;
+            return;
         }
-        else if (a != 0)
+        else if (a != 0 && a >= KEY_ZERO && a <= KEY_NINE)
             menuButton->text += a;
     }
 }

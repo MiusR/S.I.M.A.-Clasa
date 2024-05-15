@@ -31,11 +31,12 @@ inline Vector3 subtractVectors(Vector3 v1, Vector3 v2) {
 	return rez;
 }
 
+
 inline double distanceVectors(Vector3 v1, Vector3 v2) {
 	return std::sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
 }
 
-inline Vector3 toScalarVector(Vector3 v, float s) {
+inline Vector3 toScalarVector(Vector3 v, double s) {
 	Vector3 rez;
 
 	rez.x = v.x * s;

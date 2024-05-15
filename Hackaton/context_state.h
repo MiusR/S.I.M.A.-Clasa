@@ -12,6 +12,8 @@ private:
     static ContextState* instancePtr;
 
 public:
+    bool exitWindow = false;
+
     ContextState(const ContextState& obj) = delete;
 
     static ContextState* getInstance()

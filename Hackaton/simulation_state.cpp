@@ -10,10 +10,11 @@ void SimulationState::InitState() {
 	actor = new Actor();
 
 	SpriteComponent* model = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture("cosmos"), 0);
-	PositionComponent* pos = new PositionComponent({ 0,0,0 }, Vector3{ (float)GetScreenWidth(),(float)GetScreenHeight(), 0 });
+	BackgroundComponent* bg = new BackgroundComponent();
+
 
 	actor->AddComponent(model);
-	actor->AddComponent(pos);
+	actor->AddComponent(bg);
 
 	SystemManager::getInstance()->AddActor(actor);
 
@@ -69,6 +70,15 @@ void SimulationState::InitState() {
 
 
 	// ADD SYSTEMS
+
+	BackgroundDrawSystem* backgroundDraw = new BackgroundDrawSystem();
+	
+	SystemManager::getInstance()->AddSystem(backgroundDraw);
+
+	GridSystem* grid = new GridSystem();
+
+	SystemManager::getInstance()->AddSystem(grid);
+
 	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
 	SystemManager::getInstance()->AddSystem(renderer);
@@ -81,9 +91,11 @@ void SimulationState::InitState() {
 
 	SystemManager::getInstance()->AddSystem(renderer_3d);
 
-	GridSystem* grid = new GridSystem();
+	CollisionSystem* collision_system = new CollisionSystem();
 
-	SystemManager::getInstance()->AddSystem(grid);
+	collision_system->active = false;
+	
+	SystemManager::getInstance()->AddSystem(collision_system);
 
 	PhysicsSystem* physics_system = new PhysicsSystem();
 
@@ -99,7 +111,7 @@ void SimulationState::InitState() {
 
 	SystemManager::getInstance()->AddSystem(txt_inp);
 
-	ClickSystem* click = new ClickSystem(player);
+	ClickSimulationSystem* click = new ClickSimulationSystem(player);
 
 	SystemManager::getInstance()->AddSystem(click);
 
@@ -110,9 +122,10 @@ void SimulationState::InitState() {
 			spawn_planets->isSpawning = true;
 		});
 
-	CreateButton(GetScreenWidth() / 1.12 - buttonWidth / 2 + 12, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, "", "button_play", [physics_system](Actor* actor, std::vector<Actor*> actors)
+	CreateButton(GetScreenWidth() / 1.12 - buttonWidth / 2 + 12, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, "", "button_play", [physics_system, collision_system](Actor* actor, std::vector<Actor*> actors)
 		{
 			physics_system->active = !physics_system->active;
+			collision_system->active = !collision_system->active;
 		});
 
 

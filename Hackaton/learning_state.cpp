@@ -3,6 +3,9 @@
 #include "binary_system_state.h"
 #include "planets_state.h"
 #include "barac_state.h"
+#include "cristi_state.h"
+#include "four_star_balley.h"
+#include "asteroizi_state.h"
 
 void LearningState::InitState(){
 
@@ -43,6 +46,21 @@ void LearningState::InitState(){
 	
 	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+150, GetScreenHeight() / 2-100, buttonWidth, buttonHeight, 20,"Sistem Binar", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new BinarySystemState());
+		ContextState::getInstance()->InitState();
+		});
+
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+150, GetScreenHeight() / 2+100, buttonWidth, buttonHeight, 20, "Elipsa Planetelor", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new CristiState());
+		ContextState::getInstance()->InitState();
+		});
+
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 150, GetScreenHeight() / 2 + 300, buttonWidth, buttonHeight, 20, "Soarecele si Pisica", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new FourStarBalley());
+		ContextState::getInstance()->InitState();
+		});
+
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 150, GetScreenHeight() / 2 + 300, buttonWidth, buttonHeight, 20, "Haos cu asteroizi", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new AsteroiziState());
 		ContextState::getInstance()->InitState();
 		});
 

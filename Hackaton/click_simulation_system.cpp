@@ -1,6 +1,6 @@
-#include "click_system.h"
+#include "click_simulation_system.h"
 
-void ClickSystem::doLogic(std::vector<Actor*> actors, int current) {
+void ClickSimulationSystem::doLogic(std::vector<Actor*> actors, int current) {
 
     ModelComponent* model = actors[current]->GetComponent<ModelComponent>();
 

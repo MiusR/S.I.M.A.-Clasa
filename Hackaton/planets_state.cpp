@@ -1,18 +1,18 @@
 #include "planets_state.h"
 void PlanetState::InitState() {
-	///BACKGROUND 
-	Actor* actor; 
-	actor = new Actor(); 
 
-	PositionComponent* position;
-	position = new PositionComponent(Vector3{ 0, 0, 0 }, Vector3{ (float)GetScreenWidth(),(float)GetScreenHeight(), 0 });
+	///BACKGROUND 
+	Actor* actor;
+	actor = new Actor();
 
 	SpriteComponent* sprite;
 	sprite = new SpriteComponent(TextureRegistry::getInstance()->GrabTexture(std::string("cosmos")), 0);
 
-	actor->AddComponent(position);
+	BackgroundComponent* bg = new BackgroundComponent();
 
 	actor->AddComponent(sprite);
+
+	actor->AddComponent(bg);
 
 	SystemManager::getInstance()->AddActor(actor);
 	///CAMERA
@@ -22,64 +22,73 @@ void PlanetState::InitState() {
 
 	player->AddComponent(camera);
 
-	CameraControlsSystem* camera_control = new CameraControlsSystem();
+	DataTransferComponent* transfer = new DataTransferComponent();
 
-	SystemManager::getInstance()->AddSystem(camera_control);
+	player->AddComponent(transfer);
 
 	SystemManager::getInstance()->AddActor(player);
 
 
 	float buttonWidth = 128, buttonHeight = 64;
-	CreateButton(GetScreenWidth() / 11 - buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 30, "Back", "button", [](Actor* actor, std::vector<Actor*>) { 
+	CreateButton(GetScreenWidth() / 11 - buttonWidth / 2, GetScreenHeight() / 1.15, buttonWidth, buttonHeight, 30, "Back", "button", [](Actor* actor, std::vector<Actor*>) {
 		ContextState::getInstance()->RegressState();
 		ContextState::getInstance()->InitState();
 		});
 
 	actor = new Actor();
 
-	position = new PositionComponent(Vector3{ 10, 0, 3 }, Quaternion{ 0.0, 1.0, 0.0, 3 }, Vector3{ 0.1,0.1,0.1 });
+	PositionComponent* position = new PositionComponent(Vector3{ 10, 0, 3 }, Quaternion{ 0.0, 1.0, 0.0, 3 }, Vector3{ 0.1,0.1,0.1 });
+
+
 	///SYSTEMS
-	SpriteRendererSystem* renderer = new SpriteRendererSystem();
 
-	SystemManager::getInstance()->AddSystem(renderer);
+	BackgroundDrawSystem* background_renderer = new BackgroundDrawSystem();
 
-	ButtonMenuSystem* system = new ButtonMenuSystem();
-
-	SystemManager::getInstance()->AddSystem(system);
+	SystemManager::getInstance()->AddSystem(background_renderer);
 
 	ModelRendererSystem* renderer_3d = new ModelRendererSystem(&(camera->camera));
 
 	SystemManager::getInstance()->AddSystem(renderer_3d);
 
+	SpriteRendererSystem* renderer = new SpriteRendererSystem();
+
+	SystemManager::getInstance()->AddSystem(renderer);
+
+	LabelDrawSystem* label_draw = new LabelDrawSystem();
+
+	SystemManager::getInstance()->AddSystem(label_draw);
+
+	ButtonMenuSystem* system = new ButtonMenuSystem();
+
+	SystemManager::getInstance()->AddSystem(system);
+
 	SpinActorSystem* spin_system = new SpinActorSystem;
 
 	SystemManager::getInstance()->AddSystem(spin_system);
 
-	/*Actor* actor0;
-	actor0 = new Actor();
+	ClickLearnSystem* click_system = new ClickLearnSystem(player);
 
-	RotateAroundAxisComponent* spin0 = new RotateAroundAxisComponent(3);
+	SystemManager::getInstance()->AddSystem(click_system);
 
-	ModelComponent* model0 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("textura"));
+	FocusSystem* focus_system = new FocusSystem();
 
-	PositionComponent* position0 = new PositionComponent(Vector3{ 0, 0, -150 }, { 0, 1, 0, 3 }, { 30, 30, 30 });
+	SystemManager::getInstance()->AddSystem(focus_system);
 
-	actor0->AddComponent(model0); 
 
-	actor0->AddComponent(position0); 
-
-	actor0->AddComponent(spin0);*/
-
-	///SystemManager::getInstance()->AddActor(actor0)
 	///MERCUR
-	Actor* actor1;  
-	actor1 = new Actor(); 
+	Actor* actor1;
+	actor1 = new Actor();
 
-	RotateAroundAxisComponent* spin2 = new RotateAroundAxisComponent(0.0085);
+	RotateAroundAxisComponent* spin2 = new RotateAroundAxisComponent(0.05);
 
 	ModelComponent* model2 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_mercur"));
 
-	PositionComponent* position2 = new PositionComponent(Vector3{ 120, 0, -20 }, { 0, 0, 1, 0 }, {0.38,0.38,0.38});
+	PositionComponent* position2 = new PositionComponent(Vector3{ 140, 0, -20 }, { 0, 0, 1, 0 }, { 2.4,2.4,2.4 });
+
+	position2->observation_pos = { -8, 10, -3 };
+
+	LabelComponent* label1 = new LabelComponent(LoadFileText("mercur.txt"), 30, WHITE);
+
 
 	actor1->AddComponent(model2);
 
@@ -87,23 +96,31 @@ void PlanetState::InitState() {
 
 	actor1->AddComponent(spin2);
 
+	actor1->AddComponent(label1);
+
 	SystemManager::getInstance()->AddActor(actor1);
 
 	///VENUS
 	Actor* actor2;
 	actor2 = new Actor();
 
-	ModelComponent* model3 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(1, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_venus"));
+	ModelComponent* model3 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_venus"));
 
-	PositionComponent* position3 = new PositionComponent(Vector3{ 110, 0, -20 }, { 0, 0, -1, 0 }, { 0.94,0.94,0.94 });
+	PositionComponent* position3 = new PositionComponent(Vector3{ 120, 0, -20 }, { 0, 0, -1, 0 }, { 2.22,2.22,2.22});
 
-	RotateAroundAxisComponent* spin3 = new RotateAroundAxisComponent(0.002);
+	position3->observation_pos = { -12, 10, -3 };
+
+	RotateAroundAxisComponent* spin3 = new RotateAroundAxisComponent(0.04);
+
+	LabelComponent* label2 = new LabelComponent("Buna dimineata la mos ajun ne dati sau nu ne dati slanina si carnati carnati carnati CARNATI", 40, WHITE);
 
 	actor2->AddComponent(model3);
 
 	actor2->AddComponent(position3);
 
 	actor2->AddComponent(spin3);
+
+	actor2->AddComponent(label2);
 
 	SystemManager::getInstance()->AddActor(actor2);
 
@@ -113,15 +130,22 @@ void PlanetState::InitState() {
 
 	ModelComponent* model4 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_pamant"));
 
-	PositionComponent* position4 = new PositionComponent(Vector3{ 90, 0, -20 }, { 0, 0, 1, 0 }, { 1, 1, 1});
+	PositionComponent* position4 = new PositionComponent(Vector3{ 90, 0, -20 }, { 0, 0, 1, 0 }, { 5.67, 5.67, 5.67 });
+
+	position4->observation_pos = { -14, 25, -3 };
 
 	RotateAroundAxisComponent* spin4 = new RotateAroundAxisComponent(0.5);
+
+	LabelComponent* label3 = new LabelComponent("Buna dimineata la mos ajun ne dati sau nu ne dati slanina si carnati carnati carnati CARNATI", 40, WHITE);
+
 
 	actor3->AddComponent(model4);
 
 	actor3->AddComponent(position4);
 
 	actor3->AddComponent(spin4);
+
+	actor3->AddComponent(label3);
 
 	SystemManager::getInstance()->AddActor(actor3);
 
@@ -144,22 +168,28 @@ void PlanetState::InitState() {
 	SystemManager::getInstance()->AddActor(actor4);
 
 	///JUPITER
-	Actor* actor5;  
-	actor5 = new Actor();  
+	Actor* actor5;
+	actor5 = new Actor();
 
-	ModelComponent* model6 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_jupiter")); 
+	ModelComponent* model6 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_jupiter"));
 
-	PositionComponent* position6 = new PositionComponent(Vector3{ 30, 0, -20 }, { 0, 0, 1, 0 }, { 10.97,10.97,10.97 }); 
+	PositionComponent* position6 = new PositionComponent(Vector3{ 30, 0, -20 }, { 0, 0, 1, 0 }, { 10.97,10.97,10.97 });
 
-	RotateAroundAxisComponent* spin6 = new RotateAroundAxisComponent(1.2); 
+	position6->observation_pos = { -20, 36, -5 };
 
-	actor5->AddComponent(model6);  
+	RotateAroundAxisComponent* spin6 = new RotateAroundAxisComponent(1.2);
 
-	actor5->AddComponent(position6); 
-	 
-	actor5->AddComponent(spin6); 
+	LabelComponent* label6 = new LabelComponent("Buna dimineata la mos ajun ne dati sau nu ne dati slanina si carnati carnati carnati CARNATI", 40, WHITE);
 
-	SystemManager::getInstance()->AddActor(actor5); 
+	actor5->AddComponent(model6);
+
+	actor5->AddComponent(position6);
+
+	actor5->AddComponent(spin6);
+
+	actor5->AddComponent(label6);
+
+	SystemManager::getInstance()->AddActor(actor5);
 
 	///SATURN
 	Actor* actor6;
@@ -185,9 +215,9 @@ void PlanetState::InitState() {
 
 	ModelComponent* model8 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(1, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_uranus"));
 
-	PositionComponent* position8 = new PositionComponent(Vector3{ -70, 0, -20 }, { 1, 0, 0, 0 }, { 3.98,3.98,3.98 }); 
+	PositionComponent* position8 = new PositionComponent(Vector3{ -70, 0, -20 }, { 1, 0, 0, 0 }, { 3.98,3.98,3.98 });
 
-	RotateAroundAxisComponent* spin8 = new RotateAroundAxisComponent(-0.7); 
+	RotateAroundAxisComponent* spin8 = new RotateAroundAxisComponent(-0.7);
 
 	actor7->AddComponent(model8);
 
@@ -214,21 +244,4 @@ void PlanetState::InitState() {
 	actor8->AddComponent(spin9);
 
 	SystemManager::getInstance()->AddActor(actor8);
-	/*
-	///mercur
-	addCelestialBody(Vector3{0,0,-120}, 0.38, 1, "texture_mercur");
-	///venus
-	addCelestialBody(Vector3{ 0,0,-100 }, 0.94 , 1, "texture_venus");
-	///pamant
-	addCelestialBody(Vector3{ 0,0,-80 }, 1 , 3, "texture_earth");
-	///marte
-	addCelestialBody(Vector3{ 0,0,-60 }, 0.53, 1, "texture_marte");
-	///jupiter
-	addCelestialBody(Vector3{ 0,0,-20 }, 10.97 , 1, "texture_jupiter");
-	///saturn
-	addCelestialBody(Vector3{ 0,0,40 }, 9.14 , 1, "texture_saturn");
-	///uranus
-	addCelestialBody(Vector3{ 0,0,80 }, 3.98 , 1, "texture_uranus");
-	///neptun
-	addCelestialBody(Vector3{ 0,0,120 }, 3.86 , 1, "texture_neptun");*/
 }

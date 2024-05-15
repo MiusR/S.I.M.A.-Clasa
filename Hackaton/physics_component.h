@@ -8,7 +8,7 @@ class PhysicsComponent : public Component{
 
         float mass, radius;
         Vector3 velocity;
-        bool is_black_hole;
+        bool is_black_hole, skip_attraction = false;
 
         PhysicsComponent(float mass, float radius, Vector3 velocity) {
             this->mass = mass;

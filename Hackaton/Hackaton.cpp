@@ -4,6 +4,7 @@
 #include "context_state.h"
 #include "start_menu_states.h"
 
+
 int main()
 {
 
@@ -19,7 +20,7 @@ int main()
     
     // Init window
     InitWindow(screenWidth, screenHeight, "SIMA");
-    SetWindowState(FLAG_FULLSCREEN_MODE);
+    //SetWindowState(FLAG_FULLSCREEN_MODE);
     
     SetTargetFPS(60);
 
@@ -29,11 +30,13 @@ int main()
     ContextState::getInstance()->SetState(new StartMenuState());
     ContextState::getInstance()->InitState();
 
-    while (!WindowShouldClose())
+    while (!WindowShouldClose() && !ContextState::getInstance()->exitWindow)
     {
-  
+        
         BeginDrawing();
         ClearBackground(darkGreen);
+
+        
 
         SystemManager::getInstance()->Update();
 
