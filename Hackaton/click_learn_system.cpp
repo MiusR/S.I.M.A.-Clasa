@@ -8,7 +8,8 @@ void ClickLearnSystem::doLogic(std::vector<Actor*> actors, int current) {
         user->GetComponent<DataTransferComponent>()->actor = NULL;
         return;
     }
-
+    if (user->GetComponent<DataTransferComponent>()->actor != NULL)
+        return;
     PositionComponent* position = actors[current]->GetComponent<PositionComponent>();
 
     Ray ray = GetMouseRay(GetMousePosition(), user->GetComponent<CameraComponent>()->camera);
