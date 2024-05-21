@@ -233,7 +233,15 @@
     <Image Include="texture_venus.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="jupiter.txt" />
+    <Text Include="marte.txt" />
     <Text Include="mercur.txt" />
+    <Text Include="neptun.txt" />
+    <Text Include="pamant.txt" />
+    <Text Include="saturn.txt" />
+    <Text Include="test_data.txt" />
+    <Text Include="uranus.txt" />
+    <Text Include="venus.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
