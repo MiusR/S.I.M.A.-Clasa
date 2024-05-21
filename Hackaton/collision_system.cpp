@@ -8,7 +8,9 @@ void CollisionSystem::Update() {
         PhysicsComponent* actor_pshysics_a = actors[i]->GetComponent<PhysicsComponent>();
         
         actor_position_a->transform.translation = addVectors(actor_position_a->transform.translation, toScalarVector(actor_pshysics_a->velocity, GetFrameTime()));
-      
+       
+        if (actor_pshysics_a->skip_attraction)
+            actor_pshysics_a->skip_attraction = false;
     }
 
     for (int i = 0; i < actors.size(); i++) {
@@ -18,6 +20,7 @@ void CollisionSystem::Update() {
         
 
         Vector3 rez = {0,0,0};
+        float og_mass = actor_physics_a->mass;
         bool collided = false;
 
         for (int j = 0; j < actors.size(); j++) {
@@ -34,7 +37,7 @@ void CollisionSystem::Update() {
 
                 Vector3 velocity_a = actor_physics_a->velocity, velocity_b = actor_physics_b->velocity;
   
-                rez = toScalarVector(Vector3Add(toScalarVector(velocity_a, actor_physics_a->mass), toScalarVector(velocity_b, actor_physics_b->mass)), 1.0000000 / (actor_physics_a->mass + actor_physics_b->mass));
+                rez = toScalarVector(Vector3Add(toScalarVector(velocity_a, actor_physics_a->mass), toScalarVector(velocity_b, actor_physics_b->mass)), 10000000 / (actor_physics_a->mass + actor_physics_b->mass));
                 //rez = toScalarVector(Vector3Add(toScalarVector(rez, actor_pshysics_a->mass - actor_pshysics_b->mass), toScalarVector(actor_pshysics_b->velocity, actor_pshysics_b->mass)), 1.0 / aux); // Collision formula
                 
                 actor_position_a->transform.scale = Vector3Add(actor_position_a->transform.scale, toScalarVector(actor_position_b->transform.scale, 1.0 / 2.0));
@@ -46,7 +49,14 @@ void CollisionSystem::Update() {
         }
 
         if (collided) {
+            actor_physics_a->skip_attraction = true;
+
+            if (distanceVectors(rez, actor_physics_a->velocity) > 1) {
+                rez = toScalarVector(rez, 1.0 / og_mass);
+            }
+
             actor_physics_a->velocity = rez;
+            std::cout << rez.x << " " << rez.y << " " << rez.z << "\n";
         }
 
     }

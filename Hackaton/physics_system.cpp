@@ -2,7 +2,7 @@
 
 void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
 
-    const long double G = 6.67 * 0.0001; /// 10 ^ 3
+    const long double G = 6.67 * 0.01; /// 10 ^ 5
 
     PositionComponent* actor_position_a = actors[current]->GetComponent<PositionComponent>();
 
@@ -14,7 +14,7 @@ void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
     }
 
     Vector3 rez = actor_pshysics_a->velocity;
-
+    std::cout << rez.x << " " << rez.y << " " << rez.z << "\n";
     for (int i = 0; i < actors.size(); i++) {
         if (i == current || actors[i]->markDeletion)
             continue;
@@ -37,12 +37,14 @@ void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
     }
 
     Vector3 vel = actor_pshysics_a->velocity;
-    // Inertia?
-    rez.x = Lerp(vel.x, rez.x, 1 / actor_pshysics_a->mass);
-    rez.y = Lerp(vel.y, rez.y, 1 / actor_pshysics_a->mass);
-    rez.z = Lerp(vel.z, rez.z, 1 / actor_pshysics_a->mass);
 
-
+    if (distanceVectors(rez,vel) > 1) {
+        rez = toScalarVector(rez, 1.0 / (actor_pshysics_a->mass /1.0)); // 10 ^ 3
+        /*rez.x = Lerp(vel.x, rez.x, 1 / actor_pshysics_a->mass);
+        rez.y = Lerp(vel.y, rez.y, 1 / actor_pshysics_a->mass);
+        rez.z = Lerp(vel.z, rez.z, 1 / actor_pshysics_a->mass);*/
+    }
+    std::cout << rez.x << " " << rez.y << " " << rez.z << " !! \n";
     actor_pshysics_a->velocity = rez;
 
 
