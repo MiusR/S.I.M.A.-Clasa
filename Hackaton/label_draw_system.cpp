@@ -66,8 +66,9 @@ void LabelDrawSystem::doLogic(std::vector<Actor*> actors, int current) {
 		cuv = strtok(NULL, " ");
 	}
 
-	if (label_comp->scroll > drop)
-		label_comp->scroll = drop;
+	if (label_comp->scroll > drop + drop / 2)
+		label_comp->scroll = drop + drop / 2;
+
 	//int size = MeasureText(label_comp->label_text.c_str(), label_comp->font_size);
 
 	delete[] s_copy;

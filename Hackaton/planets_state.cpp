@@ -130,13 +130,13 @@ void PlanetState::InitState() {
 
 	ModelComponent* model4 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(0, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_pamant"));
 
-	PositionComponent* position4 = new PositionComponent(Vector3{ 94, 0, -20 }, { 0, 0, 1, 0 }, { 5, 5, 5 });
+	PositionComponent* position4 = new PositionComponent(Vector3{ 94, 0, -20 }, { 0, 0, 1, 0 }, { 3.8, 3.8, 3.8 });
 
 	position4->observation_pos = { -14, 25, -3 };
 
 	RotateAroundAxisComponent* spin4 = new RotateAroundAxisComponent(0.5);
 
-	LabelComponent* label3 = new LabelComponent(LoadFileText("pamant.txt"), 40, WHITE);
+	LabelComponent* label3 = new LabelComponent(LoadFileText("pamant.txt"), 30, WHITE);
 
 
 	actor3->AddComponent(model4);
@@ -155,13 +155,13 @@ void PlanetState::InitState() {
 
 	ModelComponent* model5 = new ModelComponent(ModelRegistry::getInstance()->GrabModel(1, 2, 60, 60), TextureRegistry::getInstance()->GrabTexture("texture_marte"));
 
-	PositionComponent* position5 = new PositionComponent(Vector3{ 70, 0, -20 }, { 0, 0, 1, 0 }, { 2, 2, 2 });
+	PositionComponent* position5 = new PositionComponent(Vector3{ 70, 0, -20 }, { 0, 0, 1, 0 }, { 2.5, 2.5, 2.5 });
 
 	position5->observation_pos = { -5, 10, 0 };
 
 	RotateAroundAxisComponent* spin5 = new RotateAroundAxisComponent(0.48);
 
-	LabelComponent* label5 = new LabelComponent(LoadFileText("marte.txt"), 40, WHITE);
+	LabelComponent* label5 = new LabelComponent(LoadFileText("marte.txt"), 30, WHITE);
 
 
 	actor4->AddComponent(model5);
@@ -186,7 +186,7 @@ void PlanetState::InitState() {
 
 	RotateAroundAxisComponent* spin6 = new RotateAroundAxisComponent(1.2);
 
-	LabelComponent* label6 = new LabelComponent(LoadFileText("jupiter.txt"), 40, WHITE);
+	LabelComponent* label6 = new LabelComponent(LoadFileText("jupiter.txt"), 30, WHITE);
 
 	actor5->AddComponent(model6);
 
@@ -210,7 +210,7 @@ void PlanetState::InitState() {
 
 	position7->observation_pos = { -19, 33, -5 };
 
-	LabelComponent* label7 = new LabelComponent(LoadFileText("saturn.txt"), 40, WHITE);
+	LabelComponent* label7 = new LabelComponent(LoadFileText("saturn.txt"), 30, WHITE);
 
 
 	actor6->AddComponent(model7);
@@ -236,7 +236,7 @@ void PlanetState::InitState() {
 
 	position8->observation_pos = { -11, 16, -3 };
 
-	LabelComponent* label8 = new LabelComponent(LoadFileText("uranus.txt"), 40, WHITE);
+	LabelComponent* label8 = new LabelComponent(LoadFileText("uranus.txt"), 30, WHITE);
 
 
 	actor7->AddComponent(model8);
@@ -262,7 +262,7 @@ void PlanetState::InitState() {
 
 	position9->observation_pos = { -11, 16, -3 };
 
-	LabelComponent* label9 = new LabelComponent(LoadFileText("neptun.txt"), 40, WHITE);
+	LabelComponent* label9 = new LabelComponent(LoadFileText("neptun.txt"), 30, WHITE);
 
 
 	actor8->AddComponent(model9);

@@ -50,13 +50,10 @@ void CollisionSystem::Update() {
 
         if (collided) {
             actor_physics_a->skip_attraction = true;
-
-            if (distanceVectors(rez, actor_physics_a->velocity) > 1) {
-                rez = toScalarVector(rez, 1.0 / og_mass);
-            }
+                rez = toScalarVector(rez, 0.5 / (actor_physics_a->mass * 2));
+               // rez = toScalarVector(rez, 1.0 / og_mass);
 
             actor_physics_a->velocity = rez;
-            std::cout << rez.x << " " << rez.y << " " << rez.z << "\n";
         }
 
     }

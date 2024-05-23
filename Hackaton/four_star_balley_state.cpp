@@ -81,9 +81,9 @@ void FourStarBalley::InitState() {
 		});
 	
 
-	addCelestialBody({ 10,0, 0 }, { 0,0,-4 }, 4000, 1, "texture_sun");
-	addCelestialBody({ -10,0, 0 }, { 0,0,4 }, 4000, 1, "texture_sun");
-	addCelestialBody({ 0,0, -10 }, { -4,0,0 }, 4000, 1, "texture_sun");
-	addCelestialBody({ 0,0, 10 }, { 4,0,0 }, 4000, 1, "texture_sun");
+	addCelestialBody({ 10,0, 0 }, { 0,0,-4 }, 4000, 1, "texture_jupiter");
+	addCelestialBody({ -10,0, 0 }, { 0,0,4 }, 4000, 1, "texture_saturn");
+	addCelestialBody({ 0,0, -10 }, { -4,0,0 }, 4000, 1, "texture_uranus");
+	addCelestialBody({ 0,0, 10 }, { 4,0,0 }, 4000, 1, "texture_neptun");
 
 }

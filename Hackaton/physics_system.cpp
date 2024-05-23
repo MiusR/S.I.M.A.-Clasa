@@ -44,7 +44,6 @@ void PhysicsSystem::doLogic(std::vector<Actor*> actors, int current) {
         rez.y = Lerp(vel.y, rez.y, 1 / actor_pshysics_a->mass);
         rez.z = Lerp(vel.z, rez.z, 1 / actor_pshysics_a->mass);*/
     }
-    std::cout << rez.x << " " << rez.y << " " << rez.z << " !! \n";
     actor_pshysics_a->velocity = rez;
 
 
