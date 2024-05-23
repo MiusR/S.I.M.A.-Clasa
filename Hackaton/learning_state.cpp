@@ -35,12 +35,14 @@ void LearningState::InitState(){
 	SystemManager::getInstance()->AddActor(actor);
 	
 	float buttonWidth = 200, buttonHeight = 100;
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)-150, GetScreenHeight() / 2-100, buttonWidth, buttonHeight, 20,"Planete", "button", [](Actor* actor, std::vector<Actor*> actors) {
+
+	//(GetScreenWidth() / 2 - buttonWidth / 2)-150, GetScreenHeight() / 2-100
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20,"Planete", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new PlanetState()); 
 		ContextState::getInstance()->InitState();
 		});
 
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)-150, GetScreenHeight() / 2+100, buttonWidth, buttonHeight, 20,"Sistem Solar", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)-150, GetScreenHeight() / 2-100, buttonWidth, buttonHeight, 20,"Sistem Solar", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new SolarSystemState());
 		ContextState::getInstance()->InitState();
 		});
@@ -50,17 +52,17 @@ void LearningState::InitState(){
 		ContextState::getInstance()->InitState();
 		});
 
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+150, GetScreenHeight() / 2+100, buttonWidth, buttonHeight, 20, "Elipsa Planetelor", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2)+450, GetScreenHeight() / 2-100, buttonWidth, buttonHeight, 20, "Elipsa Planetelor", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new CristiState());
 		ContextState::getInstance()->InitState();
 		});
 
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 150, GetScreenHeight() / 2 + 300, buttonWidth, buttonHeight, 20, "Soarecele si Pisica", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 150, GetScreenHeight() / 2 + 100, buttonWidth, buttonHeight, 20, "Soarecele si Pisica", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new FourStarBalley());
 		ContextState::getInstance()->InitState();
 		});
 
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 150, GetScreenHeight() / 2 + 300, buttonWidth, buttonHeight, 20, "Haos cu asteroizi", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 450, GetScreenHeight() / 2 + 100, buttonWidth, buttonHeight, 20, "Haos cu asteroizi", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new AsteroiziState());
 		ContextState::getInstance()->InitState();
 		});
@@ -70,11 +72,11 @@ void LearningState::InitState(){
 		ContextState::getInstance()->InitState();
 		});
 
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20, "PLaneta + \n \n cometa", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 150, GetScreenHeight() / 2 + 100, buttonWidth, buttonHeight, 20, "Planeta + \n \n cometa", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new BaracState());
 		ContextState::getInstance()->InitState();
 		});
-	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20, "Hiperbole", "button", [](Actor* actor, std::vector<Actor*> actors) {
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 450, GetScreenHeight() / 2 + 100, buttonWidth, buttonHeight, 20, "Hiperbole", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new HyperbolicState());
 		ContextState::getInstance()->InitState();
 		});
