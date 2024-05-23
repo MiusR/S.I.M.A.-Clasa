@@ -6,6 +6,7 @@
 #include "cristi_state.h"
 #include "four_star_balley.h"
 #include "asteroizi_state.h"
+#include "hyperbolic_state.h"
 
 void LearningState::InitState(){
 
@@ -71,6 +72,10 @@ void LearningState::InitState(){
 
 	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) + 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20, "PLaneta + \n \n cometa", "button", [](Actor* actor, std::vector<Actor*> actors) {
 		ContextState::getInstance()->SetState(new BaracState());
+		ContextState::getInstance()->InitState();
+		});
+	CreateButton((GetScreenWidth() / 2 - buttonWidth / 2) - 450, GetScreenHeight() / 2 - 100, buttonWidth, buttonHeight, 20, "Hiperbole", "button", [](Actor* actor, std::vector<Actor*> actors) {
+		ContextState::getInstance()->SetState(new HyperbolicState());
 		ContextState::getInstance()->InitState();
 		});
 
